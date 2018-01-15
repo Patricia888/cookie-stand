@@ -9,22 +9,22 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 //Example:
 var twoThousandFifteen = {
   miles: [13, 52, 44, 82, 6],
-   render: function() {
-     //access the ul from index.html
-     var ulEl = document.getElementById('fifteen');
+  render: function() {
+    //access the ul from index.html
+    var ulEl = document.getElementById('fifteen');
  
-     for(var i = 0; i < this.miles.length; i++) {
+    for(var i = 0; i < this.miles.length; i++) {
       //1. create list items
       var liEl = document.createElement('li');
-     //2 give them content
-     liEl.textContent = months[i] + ': ' + this.miles[i] + ' miles';
-     //3 append the li to the ul
-     //parentElement.appendChild(childElement);
-     ulEl.appendChild(liEl);
-     }
+      //2 give them content
+      liEl.textContent = months[i] + ': ' + this.miles[i] + ' miles';
+      //3 append the li to the ul
+      //parentElement.appendChild(childElement);
+      ulEl.appendChild(liEl);
+    }
    
-   }
- };
+  }
+};
 //Store 1
 //1 minmax cust per hour AND avg cookies in properties
 //2 use method to generate random # of customers
@@ -35,23 +35,32 @@ var twoThousandFifteen = {
 //display values of each array for each location as unordered lists
 //have total cookies sold that day at bottom
 var pikeCookieStore = {
-  miles: [13, 52, 44, 82, 6],
-   render: function() {
-     //access the ul from index.html
-     var ulEl = document.getElementById('pikeStore');
+  minCustomerdPerHour: 23,
+  maxCustomerPerHour: 65,
+  avgCookiesPerCust: 6.3,
+
+  //random cust between min and max
+  randomCustomer1: Math.random () * (65 - 23) + 23;
+  randomCustomer1: Math.floor(randomCustomer1);
+  console.log(randomCustomer1);
+
+
+  render: function() {
+    //access the ul from sales.html
+    var ulEl = document.getElementById('pikeStore');
  
-     for(var i = 0; i < this.miles.length; i++) {
+    for(var i = 0; i < this.miles.length; i++) {
       //1. create list items
       var liEl = document.createElement('li');
-     //2 give them content
-     liEl.textContent = months[i] + ': ' + this.miles[i] + ' miles';
-     //3 append the li to the ul
-     //parentElement.appendChild(childElement);
-     ulEl.appendChild(liEl);
-     }
+      //2 give them content
+      liEl.textContent = months[i] + ': ' + this.miles[i] + ' miles';
+      //3 append the li to the ul
+      //parentElement.appendChild(childElement);
+      ulEl.appendChild(liEl);
+    }
    
-   }
- };
+  }
+};
 
 //Store 2
 
