@@ -151,6 +151,16 @@ var seatacCookieStore = {
 seatacCookieStore.renderSeatacHourlyCookies();
 seatacCookieStore.renderSeatacTotal();
 
+//Constructor Object
+function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerHour, total) {
+  this.salmonCookieLocationName = salmonCookieLocationName;
+  this.minCustomerPerHour = minCustomerdPerHour;
+  this.maxCustomerPerHour = maxCustomerPerHour;
+  this.avgCookiesPerHour = avgCookiesPerHour;
+  this.total = total;
+  allDogs.push(this);
+}
+
 
 //Store 3
 var seattleCenterCookieStore = {
