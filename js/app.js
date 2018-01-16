@@ -34,7 +34,7 @@ var pikeCookieStore = {
   customerLoopFunction: function() {
     for(var i = 0; i < storeHours.length; i++) {
 
-      this.customerPerHourArray.push(Math.floor(Math.random () * (65 - 23) + 23));
+      this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
     }
   },
 
@@ -106,7 +106,7 @@ var seatacCookieStore = {
   customerLoopFunction: function() {
     for(var i = 0; i < storeHours.length; i++) {
 
-      this.customerPerHourArray.push(Math.floor(Math.random () * (24 - 3) + 3));
+      this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
     }
   },
 
@@ -171,7 +171,7 @@ var seattleCenterCookieStore = {
   //random cust between min and max
   customerLoopFunction: function() {
     for(var i = 0; i < storeHours.length; i++) {
-      this.customerPerHourArray.push(Math.floor(Math.random () * (38 - 11) + 11));
+      this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
     }
   },
 
@@ -234,7 +234,7 @@ var capitolHillCookieStore = {
   //random cust between min and max
   customerLoopFunction: function() {
     for(var i = 0; i < storeHours.length; i++) {
-      this.customerPerHourArray.push(Math.floor(Math.random () * (38 - 11) + 11));
+      this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
     }
   },
 
@@ -297,7 +297,7 @@ var alkiCookieStore = {
   //random cust between min and max
   customerLoopFunction: function() {
     for(var i = 0; i < storeHours.length; i++) {
-      this.customerPerHourArray.push(Math.floor(Math.random () * (38 - 11) + 11));
+      this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
     }
   },
 
