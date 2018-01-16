@@ -1,0 +1,27 @@
+h1 {
+  font-size: 35px;
+  background-color: rgb(105, 69, 105);
+}
+
+h3 {
+  font-size: 25px;
+  color: blue;
+  margin: 18px;
+}
+
+ol {
+  color: purple;
+  margin: 30px;
+}
+
+ul {
+  color: purple;
+  margin: 30px;
+}
+
+p {
+  margin: 15px;
+}
+
+
+
