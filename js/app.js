@@ -6,6 +6,7 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 
 
 
+
 //Example:
 var twoThousandFifteen = {
   miles: [13, 52, 44, 82, 6],
@@ -39,21 +40,46 @@ var pikeCookieStore = {
   maxCustomerPerHour: 65,
   avgCookiesPerCust: 6.3,
 
+  customerPerHourArray: [],
+  cookiesPerHourArray: [],
+  cookieLoopFunction: function() {
+    for(var x = 0; x < storeHours.length; x++) {
+      //* each entry in customerPerHourArray by avgCookiesPerCust
+      this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
+    }
+  },
+  
+
   //random cust between min and max
-  randomCustomer1: Math.random () * (65 - 23) + 23;
-  randomCustomer1: Math.floor(randomCustomer1);
-  console.log(randomCustomer1);
+  customerLoopFunction: function() {
+    for(var i = 0; i < storeHours.length; i++) {
+
+      this.customerPerHourArray.push(Math.floor(Math.random () * (65 - 23) + 23));
+
+    }
+  },
+
+  //cookies per hr
+  //cookiesSoldPerHour: randomCustomer1 * avgCookiesPerCust,
+  //store results in an array
+  //resultsArray: 
+
+
 
 
   render: function() {
     //access the ul from sales.html
     var ulEl = document.getElementById('pikeStore');
  
-    for(var i = 0; i < this.miles.length; i++) {
+    this.customerLoopFunction();
+    this.cookieLoopFunction();
+    console.log(this.customerPerHourArray);
+
+    for(var i = 0; i < storeHours.length; i++) {
       //1. create list items
       var liEl = document.createElement('li');
       //2 give them content
-      liEl.textContent = months[i] + ': ' + this.miles[i] + ' miles';
+      liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
       //3 append the li to the ul
       //parentElement.appendChild(childElement);
       ulEl.appendChild(liEl);
@@ -61,6 +87,8 @@ var pikeCookieStore = {
    
   }
 };
+
+pikeCookieStore.render();
 
 //Store 2
 
