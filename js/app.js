@@ -5,27 +5,6 @@ var cookieStandLocations = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 
-
-
-//Example:
-var twoThousandFifteen = {
-  miles: [13, 52, 44, 82, 6],
-  render: function() {
-    //access the ul from index.html
-    var ulEl = document.getElementById('fifteen');
- 
-    for(var i = 0; i < this.miles.length; i++) {
-      //1. create list items
-      var liEl = document.createElement('li');
-      //2 give them content
-      liEl.textContent = months[i] + ': ' + this.miles[i] + ' miles';
-      //3 append the li to the ul
-      //parentElement.appendChild(childElement);
-      ulEl.appendChild(liEl);
-    }
-   
-  }
-};
 //Store 1
 //1 minmax cust per hour AND avg cookies in properties
 //2 use method to generate random # of customers
@@ -39,6 +18,7 @@ var pikeCookieStore = {
   minCustomerdPerHour: 23,
   maxCustomerPerHour: 65,
   avgCookiesPerCust: 6.3,
+  total: 0,
 
   customerPerHourArray: [],
   cookiesPerHourArray: [],
@@ -48,47 +28,62 @@ var pikeCookieStore = {
       this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
     }
   },
-  
 
   //random cust between min and max
   customerLoopFunction: function() {
     for(var i = 0; i < storeHours.length; i++) {
 
       this.customerPerHourArray.push(Math.floor(Math.random () * (65 - 23) + 23));
-
     }
   },
 
-  //cookies per hr
-  //cookiesSoldPerHour: randomCustomer1 * avgCookiesPerCust,
-  //store results in an array
-  //resultsArray: 
+  //Total Cookie Stuff
+  totalCookiesForPikeFunction: function() {
+    for(var y = 0; y < this.cookiesPerHourArray.length; y++) {
+      this.total += this.cookiesPerHourArray[y];
+    }
+    console.log(this.total);
+  },
 
+  // Push total to end of cookiesPerHourArray
+  // pushTotalAtEndOfArray: function() {
+  // this.cookiesPerHourArray.push(this.total);
+  // },
 
-
-
-  render: function() {
+  renderHourlyCookies: function() {
     //access the ul from sales.html
     var ulEl = document.getElementById('pikeStore');
- 
+
     this.customerLoopFunction();
     this.cookieLoopFunction();
+    //this.totalCookiesForPikeFunction();
+    //this.pushTotalAtEndOfArray('Total');
     console.log(this.customerPerHourArray);
 
-    for(var i = 0; i < storeHours.length; i++) {
+    for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
       //1. create list items
       var liEl = document.createElement('li');
       //2 give them content
       liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
-      //3 append the li to the ul
-      //parentElement.appendChild(childElement);
       ulEl.appendChild(liEl);
     }
-   
+  },
+
+  renderTotal: function() {
+    var ulEl = document.getElementById('pikeStore');
+
+    this.totalCookiesForPikeFunction();
+
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookies: ' + this.total;
+    ulEl.appendChild(liEl);
   }
 };
 
-pikeCookieStore.render();
+pikeCookieStore.renderHourlyCookies();
+pikeCookieStore.renderTotal();
+
+
 
 //Store 2
 
