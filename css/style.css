@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(200, 200, 200);
+}
+
 h1 {
   font-size: 50px;
   background-color: rgb(105, 69, 105);
@@ -23,11 +27,14 @@ ol {
 ul {
   color: purple;
   margin: 30px;
+  font-family: arial
 }
 
 p {
   margin: 15px;
+  font-family: georgia
 }
+
 
 
 
