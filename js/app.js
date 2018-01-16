@@ -152,14 +152,43 @@ seatacCookieStore.renderSeatacHourlyCookies();
 seatacCookieStore.renderSeatacTotal();
 
 //Constructor Object
+var infoForAllLocations = [];
+
 function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerHour, total) {
   this.salmonCookieLocationName = salmonCookieLocationName;
   this.minCustomerPerHour = minCustomerdPerHour;
   this.maxCustomerPerHour = maxCustomerPerHour;
   this.avgCookiesPerHour = avgCookiesPerHour;
   this.total = total;
-  allDogs.push(this);
+  infoForAllLocations.push(this);
+
+  customerPerHourArray: [],
+  cookiesPerHourArray: [],
+
+  this.cookieLoopFunction = function() {
+    for(var x = 0; x < storeHours.length; x++) {
+      this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
+    }
+  },
+
+  //random cust between min and max
+  this.customerLoopFunction = function() {
+    for(var i = 0; i < storeHours.length; i++) {
+      this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
+    }
+  },
+
+  //Total Cookie Stuff
+  this.totalCookiesForSeattleCenterFunction = function() {
+    for(var y = 0; y < this.cookiesPerHourArray.length; y++) {
+      this.totalSeattleCenter += this.cookiesPerHourArray[y];
+    }
+    console.log(this.totalSeattleCenter);
+  },
+
 }
+
+
 
 
 //Store 3
