@@ -4,8 +4,6 @@ var cookieStandLocations = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 
 
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-
-//Store 1
 //1 minmax cust per hour AND avg cookies in properties
 //2 use method to generate random # of customers
 //3 calculate and store cookies purchase each hour
@@ -14,6 +12,9 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 //        -perhaps as a property of the object
 //display values of each array for each location as unordered lists
 //have total cookies sold that day at bottom
+
+
+//Store 1
 var pikeCookieStore = {
   minCustomerdPerHour: 23,
   maxCustomerPerHour: 65,
@@ -75,7 +76,7 @@ var pikeCookieStore = {
     this.totalCookiesForPikeFunction();
 
     var liEl = document.createElement('li');
-    liEl.textContent = 'Total cookies: ' + this.total;
+    liEl.textContent = 'Total cookies sold: ' + this.total;
     ulEl.appendChild(liEl);
   }
 };
@@ -86,8 +87,73 @@ pikeCookieStore.renderTotal();
 
 
 //Store 2
+var seatacCookieStore = {
+  minCustomerdPerHour: 3,
+  maxCustomerPerHour: 24,
+  avgCookiesPerCust: 1.2,
+  totalSeatac: 0,
+
+  customerPerHourArray: [],
+  cookiesPerHourArray: [],
+
+  cookieLoopFunction: function() {
+    for(var x = 0; x < storeHours.length; x++) {
+      this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
+    }
+  },
+
+  //random cust between min and max
+  customerLoopFunction: function() {
+    for(var i = 0; i < storeHours.length; i++) {
+
+      this.customerPerHourArray.push(Math.floor(Math.random () * (24 - 3) + 3));
+    }
+  },
+
+  //Total Cookie Stuff
+  totalCookiesForSeatacFunction: function() {
+    for(var y = 0; y < this.cookiesPerHourArray.length; y++) {
+      this.totalSeatac += this.cookiesPerHourArray[y];
+    }
+    console.log(this.totalSeatac);
+  },
+
+  renderSeatacHourlyCookies: function() {
+    //access the ul from sales.html
+    var ulEl = document.getElementById('seatacStore');
+
+    this.customerLoopFunction();
+    this.cookieLoopFunction();
+    //this.totalCookiesForPikeFunction();
+    //this.pushTotalAtEndOfArray('Total');
+    console.log(this.customerPerHourArray);
+
+    for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
+      //1. create list items
+      var liEl = document.createElement('li');
+      //2 give them content
+      liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
+      ulEl.appendChild(liEl);
+    }
+  },
+
+  renderSeatacTotal: function() {
+    var ulEl = document.getElementById('seatacStore');
+
+    this.totalCookiesForSeatacFunction();
+
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookies sold: ' + this.totalSeatac;
+    ulEl.appendChild(liEl);
+  }
+};
+
+seatacCookieStore.renderSeatacHourlyCookies();
+seatacCookieStore.renderSeatacTotal();
 
 //Store 3
+
+
 
 //Store 4
 
