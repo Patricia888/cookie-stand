@@ -5,7 +5,7 @@ body {
 h1 {
   font-size: 50px;
   background-color: rgb(105, 69, 105);
-  font: supermercado One
+  font-family: 'Playfair Display', serif;
 }
 
 h3 {
