@@ -151,8 +151,68 @@ var seatacCookieStore = {
 seatacCookieStore.renderSeatacHourlyCookies();
 seatacCookieStore.renderSeatacTotal();
 
-//Store 3
 
+//Store 3
+var seattleCenterCookieStore = {
+  minCustomerdPerHour: 11,
+  maxCustomerPerHour: 38,
+  avgCookiesPerCust: 3.7,
+  totalSeattleCenter: 0,
+
+  customerPerHourArray: [],
+  cookiesPerHourArray: [],
+
+  cookieLoopFunction: function() {
+    for(var x = 0; x < storeHours.length; x++) {
+      this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
+    }
+  },
+
+  //random cust between min and max
+  customerLoopFunction: function() {
+    for(var i = 0; i < storeHours.length; i++) {
+      this.customerPerHourArray.push(Math.floor(Math.random () * (38 - 11) + 11));
+    }
+  },
+
+  //Total Cookie Stuff
+  totalCookiesForSeattleCenterFunction: function() {
+    for(var y = 0; y < this.cookiesPerHourArray.length; y++) {
+      this.totalSeattleCenter += this.cookiesPerHourArray[y];
+    }
+    console.log(this.totalSeattleCenter);
+  },
+
+  renderSeattleCenterHourlyCookies: function() {
+    //access the ul from sales.html
+    var ulEl = document.getElementById('seaCenterStore');
+
+    this.customerLoopFunction();
+    this.cookieLoopFunction();
+    console.log(this.customerPerHourArray);
+
+    for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
+      //1. create list items
+      var liEl = document.createElement('li');
+      //2 give them content
+      liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
+      ulEl.appendChild(liEl);
+    }
+  },
+
+  renderSeattleCenterTotal: function() {
+    var ulEl = document.getElementById('seaCenterStore');
+
+    this.totalCookiesForSeattleCenterFunction();
+
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookies sold: ' + this.totalSeattleCenter;
+    ulEl.appendChild(liEl);
+  }
+};
+
+seattleCenterCookieStore.renderSeattleCenterHourlyCookies();
+seattleCenterCookieStore.renderSeattleCenterTotal();
 
 
 //Store 4
