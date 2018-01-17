@@ -15,7 +15,7 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 
 
 //Store 1
-var pikeCookieStore = {
+/*var pikeCookieStore = {
   minCustomerdPerHour: 23,
   maxCustomerPerHour: 65,
   avgCookiesPerCust: 6.3,
@@ -150,6 +150,7 @@ var seatacCookieStore = {
 
 seatacCookieStore.renderSeatacHourlyCookies();
 seatacCookieStore.renderSeatacTotal();
+*/
 
 //Constructor Object
 var infoForAllLocations = [];
@@ -162,8 +163,8 @@ function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, max
   this.total = total;
   infoForAllLocations.push(this);
 
-  customerPerHourArray: [],
-  cookiesPerHourArray: [],
+  customerPerHourArray = [],
+  cookiesPerHourArray = [],
 
   this.cookieLoopFunction = function() {
     for(var x = 0; x < storeHours.length; x++) {
@@ -179,14 +180,39 @@ function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, max
   },
 
   //Total Cookie Stuff
-  this.totalCookiesForSeattleCenterFunction = function() {
+  this.totalCookiesForAnyLocation = function() {
     for(var y = 0; y < this.cookiesPerHourArray.length; y++) {
       this.totalSeattleCenter += this.cookiesPerHourArray[y];
     }
-    console.log(this.totalSeattleCenter);
+    console.log(this.total);
   },
-
 }
+
+ConstructorForCookies.prototype.render = function () {
+  var ulEl = document.getElementById(this.salmonCookieLocationName);
+
+  this.customerLoopFunction();
+  this.cookieLoopFunction();
+  console.log(this.customerPerHourArray);
+
+  for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
+    //1. create list items
+    var liEl = document.createElement('li');
+    //2 give them content
+    liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
+    ulEl.appendChild(liEl);
+  }
+}
+ConstructorForCookies.prototype.renderTotal = function () {
+  var ulEl = document.getElementById(this.salmonCookieLocationName);
+
+    this.totalCookiesForSeattleCenterFunction();
+
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookies sold: ' + this.total;
+    ulEl.appendChild(liEl);
+}
+
 
 
 
