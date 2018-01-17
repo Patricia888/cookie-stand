@@ -28,12 +28,14 @@ ol {
 ul {
   color: purple;
   margin: 30px;
-  font-family: arial
+  font-family: arial;
+  border: 2px solid black;
+  width: 310px;
 }
 
 p {
   margin: 15px;
-  font-family: georgia
+  font-family: georgia;
 }
 
 
