@@ -166,16 +166,16 @@ function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, max
   this.customerPerHourArray = [],
   this.cookiesPerHourArray = [],
 
-  this.cookieLoopFunction = function() {
-    for(var x = 0; x < storeHours.length; x++) {
-      this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
-    }
-  },
-
   //random cust between min and max
   this.customerLoopFunction = function() {
     for(var i = 0; i < storeHours.length; i++) {
       this.customerPerHourArray.push(Math.floor(Math.random () * (this.maxCustomerPerHour - this.minCustomerdPerHour) + this.minCustomerdPerHour));
+    }
+  },
+
+  this.cookieLoopFunction = function() {
+    for(var x = 0; x < storeHours.length; x++) {
+      this.cookiesPerHourArray.push(Math.floor(this.customerPerHourArray[x] * this.avgCookiesPerCust));
     }
   },
 
