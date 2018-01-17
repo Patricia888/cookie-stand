@@ -202,7 +202,7 @@ ConstructorForCookies.prototype.render = function () {
 
   for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
     //1. create list items
-    var liEl = document.createElement('li');
+    var liEl = document.createElement('tr');
     //2 give them content
     liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
     ulEl.appendChild(liEl);
@@ -213,7 +213,7 @@ ConstructorForCookies.prototype.renderTotal = function () {
 
   this.totalCookiesForAnyLocation();
 
-  var liEl = document.createElement('li');
+  var liEl = document.createElement('tr');
   liEl.textContent = 'Total cookies sold: ' + this.total;
   ulEl.appendChild(liEl);
 };
@@ -223,6 +223,28 @@ var seatacStore = new ConstructorForCookies('Seatac', 3, 24, 1.2, 0);
 var seattleCenterStore = new ConstructorForCookies('Seattle Center', 11, 38, 3.7, 0);
 var capitolHillStore = new ConstructorForCookies('Capitol Hill', 20, 38, 2.3, 0);
 var alkiStore = new ConstructorForCookies('Alki', 2, 16, 4.6, 0);
+
+//Make Table Header
+function makeHeaderRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = '';
+  trEl.appendChild(thEl);
+
+  var thEl = document.createElement('th');
+  thEl.textContent = '6am';
+  trEl.appendChild(thEl);
+
+  var thEl = document.createElement('th');
+  thEl.textContent = '7am';
+  trEl.appendChild(thEl);
+
+  var thEl = document.createElement('th');
+  thEl.textContent = '8am';
+  trEl.appendChild(thEl);
+
+  dogTable.appendChild(trEl);
+}
 
 
 pikeStore.render();
