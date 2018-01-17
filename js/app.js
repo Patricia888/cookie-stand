@@ -253,7 +253,18 @@ function makeHeaderRow() {
   tableForCookies.appendChild(trEl);
 }
 
+function makeFooterRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+
+  thEl.textContent = 'Total for hour: ';
+  trEl.appendChild(thEl);
+  
+}
+
+
 makeHeaderRow();
+makeFooterRow();
 
 pikeStore.render();
 seatacStore.render();
