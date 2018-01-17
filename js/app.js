@@ -257,14 +257,27 @@ function makeFooterRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
 
-  thEl.textContent = 'Total for hour: ';
+  thEl.textContent = 'Total per hour: ';
   trEl.appendChild(thEl);
-  
+
+  for (var m = 0; m < storeHours.length; m++) {
+    thEl = document.createElement('th');
+    //sum of array [m] for all the stores
+    //thEl.textContent = cookiesPerHourArray[m];
+
+    for (var i = 0; i < infoForAllLocations.length; i++) {
+      console.log(infoForAllLocations[i]);
+      console.log(storeHours[m]);
+    }
+
+    trEl.appendChild(thEl);
+  }
+
+  tableForCookies.appendChild(trEl);
 }
 
 
 makeHeaderRow();
-makeFooterRow();
 
 pikeStore.render();
 seatacStore.render();
@@ -272,11 +285,8 @@ seattleCenterStore.render();
 capitolHillStore.render();
 alkiStore.render();
 
-pikeStore.renderTotal();
-seatacStore.renderTotal();
-seattleCenterStore.renderTotal();
-capitolHillStore.renderTotal();
-alkiStore.renderTotal();
+
+makeFooterRow();
 
 
 
