@@ -239,6 +239,13 @@ alkiStore.renderTotal();
 
 
 
+//1. html needs table element
+//2. in the js, add rows, one for each store
+//3. each row needs to have the data from the list items
+
+
+
+
 //Store 3
 // var seattleCenterCookieStore = {
 //   minCustomerdPerHour: 11,
