@@ -266,10 +266,18 @@ function makeFooterRow() {
     //tdEl.textContent = cookiesPerHourArray[m];
 
     for (var i = 0; i < infoForAllLocations.length; i++) {
-      console.log(infoForAllLocations[i]);
-      console.log(storeHours[m]);
+      console.log('info',infoForAllLocations[i].cookiesPerHourArray[m]);
+      console.log('hours',storeHours[m]);
+      console.log(m);
 
-      //tdEl.textContent = this.cookiesPerHourArray[i];
+      //tdEl.textContent = infoForAllLocations[3].cookiesPerHourArray[m];
+
+      var columnTotal = infoForAllLocations[0].cookiesPerHourArray[m] + infoForAllLocations[1].cookiesPerHourArray[m] + infoForAllLocations[2].cookiesPerHourArray[m] + infoForAllLocations[3].cookiesPerHourArray[m] + infoForAllLocations[4].cookiesPerHourArray[m];
+
+      tdEl.textContent = columnTotal;
+
+      //want to sum the 5 dif numbers in each hour
+      //tdEl.textContent = pikeStore.cookiesPerHourArray[i] + seatacStore.cookiesPerHourArray[i] + seattleCenter.cookiesPerHourArray[i] + capitolHillStore.cookiesPerHourArray[i] + alkiStore.cookiesPerHourArray[i]
     }
 
     trEl.appendChild(tdEl);
