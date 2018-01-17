@@ -154,6 +154,7 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 
 //Constructor Object
 var infoForAllLocations = [];
+var tableForCookies = document.getElementById('tableForCookieSales');
 
 function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCust, total) {
   this.salmonCookieLocationName = salmonCookieLocationName;
@@ -193,6 +194,10 @@ function ConstructorForCookies(salmonCookieLocationName, minCustomerPerHour, max
 }
 
 ConstructorForCookies.prototype.render = function () {
+  //create tr and td
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+
   var ulEl = document.getElementById(this.salmonCookieLocationName);
 
   this.customerLoopFunction();
@@ -202,10 +207,10 @@ ConstructorForCookies.prototype.render = function () {
 
   for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
     //1. create list items
-    var liEl = document.createElement('tr');
+    var trEl = document.createElement('tr');
     //2 give them content
-    liEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
-    ulEl.appendChild(liEl);
+    trEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
+    tableID.appendChild(trEl);
   }
 };
 ConstructorForCookies.prototype.renderTotal = function () {
@@ -213,9 +218,9 @@ ConstructorForCookies.prototype.renderTotal = function () {
 
   this.totalCookiesForAnyLocation();
 
-  var liEl = document.createElement('tr');
-  liEl.textContent = 'Total cookies sold: ' + this.total;
-  ulEl.appendChild(liEl);
+  var trEl = document.createElement('tr');
+  trEl.textContent = 'Total cookies sold: ' + this.total;
+  tableID.appendChild(trEl);
 };
 
 var pikeStore = new ConstructorForCookies('1st and Pike', 23, 65, 6.3, 0);
@@ -228,6 +233,7 @@ var alkiStore = new ConstructorForCookies('Alki', 2, 16, 4.6, 0);
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
+  
   thEl.textContent = '';
   trEl.appendChild(thEl);
 
@@ -243,9 +249,10 @@ function makeHeaderRow() {
   thEl.textContent = '8am';
   trEl.appendChild(thEl);
 
-  dogTable.appendChild(trEl);
+  tableID.appendChild(trEl);
 }
 
+makeHeaderRow();
 
 pikeStore.render();
 seatacStore.render();
