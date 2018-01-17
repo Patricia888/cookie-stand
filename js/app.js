@@ -198,30 +198,34 @@ ConstructorForCookies.prototype.render = function () {
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
 
-  var ulEl = document.getElementById(this.salmonCookieLocationName);
 
   this.customerLoopFunction();
   this.cookieLoopFunction();
   console.log(this.customerPerHourArray);
   console.log(this);
 
+  tdEl.textContent = this.salmonCookieLocationName;
+  trEl.appendChild(tdEl);
+
+
   for(var i = 0; i < this.cookiesPerHourArray.length; i++) {
     //1. create list items
-    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
     //2 give them content
-    trEl.textContent = storeHours[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
-    tableID.appendChild(trEl);
+    tdEl.textContent = this.cookiesPerHourArray[i];
+    
+    trEl.appendChild(tdEl);
+    tableForCookies.appendChild(trEl);
   }
-};
-ConstructorForCookies.prototype.renderTotal = function () {
-  var ulEl = document.getElementById(this.salmonCookieLocationName);
 
   this.totalCookiesForAnyLocation();
 
-  var trEl = document.createElement('tr');
-  trEl.textContent = 'Total cookies sold: ' + this.total;
-  tableID.appendChild(trEl);
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'cookies sold: ' + this.total;
+  trEl.appendChild(tdEl);
+
 };
+
 
 var pikeStore = new ConstructorForCookies('1st and Pike', 23, 65, 6.3, 0);
 var seatacStore = new ConstructorForCookies('Seatac', 3, 24, 1.2, 0);
@@ -233,23 +237,20 @@ var alkiStore = new ConstructorForCookies('Alki', 2, 16, 4.6, 0);
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
-  
+
   thEl.textContent = '';
   trEl.appendChild(thEl);
 
-  var thEl = document.createElement('th');
-  thEl.textContent = '6am';
+  for (var i = 0; i < storeHours.length; i++) {
+    thEl = document.createElement('th');
+    thEl.textContent = storeHours[i];
+    trEl.appendChild(thEl);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Total';
   trEl.appendChild(thEl);
 
-  var thEl = document.createElement('th');
-  thEl.textContent = '7am';
-  trEl.appendChild(thEl);
-
-  var thEl = document.createElement('th');
-  thEl.textContent = '8am';
-  trEl.appendChild(thEl);
-
-  tableID.appendChild(trEl);
+  tableForCookies.appendChild(trEl);
 }
 
 makeHeaderRow();
