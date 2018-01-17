@@ -255,22 +255,24 @@ function makeHeaderRow() {
 
 function makeFooterRow() {
   var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
+  var tdEl = document.createElement('td');
 
-  thEl.textContent = 'Total per hour: ';
-  trEl.appendChild(thEl);
+  tdEl.textContent = 'Total per hour: ';
+  trEl.appendChild(tdEl);
 
   for (var m = 0; m < storeHours.length; m++) {
-    thEl = document.createElement('th');
+    tdEl = document.createElement('td');
     //sum of array [m] for all the stores
-    //thEl.textContent = cookiesPerHourArray[m];
+    //tdEl.textContent = cookiesPerHourArray[m];
 
     for (var i = 0; i < infoForAllLocations.length; i++) {
       console.log(infoForAllLocations[i]);
       console.log(storeHours[m]);
+
+      //tdEl.textContent = this.cookiesPerHourArray[i];
     }
 
-    trEl.appendChild(thEl);
+    trEl.appendChild(tdEl);
   }
 
   tableForCookies.appendChild(trEl);
