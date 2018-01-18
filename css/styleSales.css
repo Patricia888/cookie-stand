@@ -1,16 +1,28 @@
 body {
-  margin-left: 50px
+  margin-left: 50px;
 }
 
 h1 {
-  font-size: 200%
+  font-size: 200%;
 }
 
 h3 {
-  font-size: 125%
+  font-size: 125%;
 }
 
 ul {
-  margin-left: 60px
+  margin-left: 60px;
 }
 
+td {
+  background-color: gray;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #F7B733
+}
+
+legend {
+  font-size: 25px;
+}
