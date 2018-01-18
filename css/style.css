@@ -1,43 +1,61 @@
 body {
   background-color: rgb(200, 200, 200);
+  text-align: center;
 }
 
 h1 {
   font-size: 50px;
   background-color: rgb(105, 69, 105);
   font-family: 'Playfair Display', serif;
+  text-align: center;
 }
 
 h3 {
   font-size: 40px;
   color: blue;
-  margin: 18px;
+  text-align: center;
 }
 
 h4 {
   font-size: 20px;
   color: blue;
-  margin: 18px;
+  text-align: center;
 }
 
 ol {
   color: purple;
-  margin: 30px;
+  text-align: center;
 }
 
 ul {
   color: purple;
-  margin: 30px;
+  margin-left: 440px;
   font-family: arial;
   border: 2px solid black;
   width: 310px;
 }
 
 p {
-  margin: 15px;
+  text-align: center;
   font-family: georgia;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
+#salmonFloatLeft {
+  width: 200px;
+  float: left;
+}
+
+#chinookFloatLeft {
+  width: 200px;
+  float: left;
+}
+
+#salmonFloatRight {
+  width: 200px;
+  float: right;
+}
 
 
 
