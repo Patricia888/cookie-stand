@@ -1,9 +1,15 @@
+* {
+  background-color: rgb(200, 200, 200);
+}
+
 body {
   margin-left: 50px;
 }
 
 h1 {
   font-size: 200%;
+  background-color: rgb(106, 106, 240);
+  margin-right: 214px;
 }
 
 h3 {
@@ -16,8 +22,8 @@ ul {
 
 td {
   padding: 10px;
-  background-color: gray;
   border: 1px solid black;
+
 }
 
 th {
@@ -27,3 +33,10 @@ th {
 legend {
   font-size: 25px;
 }
+
+button {
+  padding: 5px;
+  font-size: 20px;
+  background-color: #F7B733;
+}
+
