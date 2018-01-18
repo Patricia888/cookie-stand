@@ -8,9 +8,28 @@
   </head>
   <body>
     <h1>Pat's Salmon Cookie Sales Sheet</h1>
-    
 
     <table id="tableForCookieSales"></table>
+
+    <form id="formId">
+      <fieldset>
+        <legend>Add a New Store</legend>
+
+        <label for="storeName">Name:</label>
+        <input name="storeName" type="text" />
+
+        <label for="minCustomer">Color:</label>
+        <input name="minCustomer" type="text" />
+
+        <label for="maxCustomer">Breed:</label>
+        <input name="maxCustomer" type="text" />
+
+        <label for="avgCookiesBoughtPerCustomer">Nickname:</label>
+        <input name="avgCookiesBoughtPerCustomer" type="text" />
+
+        <button id="addStore">Add a Store</button>
+      </fieldset>
+    </form>
 
     <script src="js/app.js" type="text/javascript"></script>
   </body>
