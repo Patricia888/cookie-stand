@@ -270,19 +270,22 @@ function makeFooterRow() {
       console.log('hours',storeHours[m]);
       console.log(m);
 
-      //tdEl.textContent = infoForAllLocations[3].cookiesPerHourArray[m];
+      tdEl.textContent = infoForAllLocations[3].cookiesPerHourArray[m];
 
-      var columnTotal = infoForAllLocations[0].cookiesPerHourArray[m] + infoForAllLocations[1].cookiesPerHourArray[m] + infoForAllLocations[2].cookiesPerHourArray[m] + infoForAllLocations[3].cookiesPerHourArray[m] + infoForAllLocations[4].cookiesPerHourArray[m];
+      var columnTotal = 0;
+      for (var t = 0; t < infoForAllLocations.length; t++) {
+        columnTotal = infoForAllLocations[t].cookiesPerHourArray[m] + columnTotal;
+        tdEl.textContent = columnTotal;
+      }
+      // var columnTotal = infoForAllLocations[0].cookiesPerHourArray[m] + infoForAllLocations[1].cookiesPerHourArray[m];
+      // var columnTotal += infoForAllLocations[2].cookiesPerHourArray[m];
+      // var columnTotal = columnTotal + infoForAllLocations[3].cookiesPerHourArray[m];
+      // var columnTotal = columnTotal + infoForAllLocations[4].cookiesPerHourArray[m];
 
-      tdEl.textContent = columnTotal;
-
-      //want to sum the 5 dif numbers in each hour
-      //tdEl.textContent = pikeStore.cookiesPerHourArray[i] + seatacStore.cookiesPerHourArray[i] + seattleCenter.cookiesPerHourArray[i] + capitolHillStore.cookiesPerHourArray[i] + alkiStore.cookiesPerHourArray[i]
+      // tdEl.textContent = columnTotal;
     }
-
     trEl.appendChild(tdEl);
   }
-
   tableForCookies.appendChild(trEl);
 }
 
@@ -294,7 +297,6 @@ seatacStore.render();
 seattleCenterStore.render();
 capitolHillStore.render();
 alkiStore.render();
-
 
 makeFooterRow();
 
