@@ -20,6 +20,7 @@ h4 {
   font-size: 20px;
   color: blue;
   text-align: center;
+  padding: 10px;
 }
 
 ol {
@@ -57,5 +58,13 @@ p {
 #chinookFloatRight {
   width: 200px;
   float: right;
+}
+
+#cutter {
+  height: 150px;
+}
+
+#frostedCookie {
+  height: 150px;
 }
 
