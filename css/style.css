@@ -30,7 +30,7 @@ ol {
 
 ul {
   color: purple;
-  margin-left: 440px;
+  margin-left: 420px;
   font-family: arial;
   border: 2px solid black;
   padding: 20px;
@@ -68,3 +68,10 @@ p {
   height: 150px;
 }
 
+#tShirt {
+  height: 150px;
+}
+
+#family {
+  height: 150px;
+}
