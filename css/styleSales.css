@@ -1,9 +1,15 @@
+* {
+  background-color: rgb(200, 200, 200);
+}
+
 body {
   margin-left: 50px;
 }
 
 h1 {
   font-size: 200%;
+  background-color: rgb(106, 106, 240);
+  margin-right: 214px;
 }
 
 h3 {
@@ -15,7 +21,7 @@ ul {
 }
 
 td {
-  background-color: gray;
+  padding: 10px;
   border: 1px solid black;
 }
 
@@ -23,6 +29,22 @@ th {
   background-color: #F7B733;
 }
 
+fieldset {
+  margin-top: 20px;
+}
+
 legend {
   font-size: 25px;
+  background-color: rgb(106, 106, 240);
 }
+
+button {
+  padding: 5px;
+  font-size: 20px;
+  background-color: #F7B733;
+}
+
+input {
+  margin: 4px;
+}
+

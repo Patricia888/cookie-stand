@@ -1,43 +1,77 @@
 body {
   background-color: rgb(200, 200, 200);
+  text-align: center;
 }
 
 h1 {
   font-size: 50px;
   background-color: rgb(105, 69, 105);
   font-family: 'Playfair Display', serif;
+  text-align: center;
 }
 
 h3 {
   font-size: 40px;
   color: blue;
-  margin: 18px;
+  text-align: center;
 }
 
 h4 {
   font-size: 20px;
   color: blue;
-  margin: 18px;
+  text-align: center;
+  padding: 10px;
 }
 
 ol {
   color: purple;
-  margin: 30px;
+  text-align: center;
 }
 
 ul {
   color: purple;
-  margin: 30px;
+  margin-left: 420px;
   font-family: arial;
   border: 2px solid black;
+  padding: 20px;
   width: 310px;
 }
 
 p {
-  margin: 15px;
+  text-align: center;
   font-family: georgia;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
+#salmonFloat {
+  width: 500px;
+  float: center;
+  border-image-repeat: repeat-y;
+}
 
+#chinookFloatLeft {
+  width: 200px;
+  float: left;
+}
 
+#chinookFloatRight {
+  width: 200px;
+  float: right;
+}
 
+#cutter {
+  height: 150px;
+}
+
+#frostedCookie {
+  height: 150px;
+}
+
+#tShirt {
+  height: 150px;
+}
+
+#family {
+  height: 150px;
+}
