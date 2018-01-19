@@ -32,6 +32,7 @@ ul {
   margin-left: 440px;
   font-family: arial;
   border: 2px solid black;
+  padding: 20px;
   width: 310px;
 }
 
@@ -42,9 +43,10 @@ p {
   margin-right: 100px;
 }
 
-#salmonFloatLeft {
-  width: 200px;
-  float: left;
+#salmonFloat {
+  width: 500px;
+  float: center;
+  border-image-repeat: repeat-y;
 }
 
 #chinookFloatLeft {
@@ -52,10 +54,8 @@ p {
   float: left;
 }
 
-#salmonFloatRight {
+#chinookFloatRight {
   width: 200px;
   float: right;
 }
-
-
 
